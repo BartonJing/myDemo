@@ -1,8 +1,5 @@
 package com.barton.sort;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SortClass {
     /**
      * 冒泡排序
@@ -28,6 +25,8 @@ public class SortClass {
         }
     }
 
+
+
     /**
      * 插入排序
      * <p>
@@ -44,7 +43,7 @@ public class SortClass {
         int size = numbers.length, temp, j;
         for (int i = 1; i < size; i++) {
             temp = numbers[i];
-            for (j = i; j > 0 && temp < numbers[j - 1]; j--)
+            for(j = i; j > 0 && temp < numbers[j - 1]; j--)
                 numbers[j] = numbers[j - 1];
                 printArr(numbers);
             numbers[j] = temp;
@@ -60,6 +59,8 @@ public class SortClass {
             for(j=i; j > 0 && currentNumber < numbers[j-1]; j--){
                 numbers[j] = numbers[j - 1];
             }
+            System.out.println(j);
+            printArr(numbers);
             numbers[j] = currentNumber;
         }
     }
@@ -86,7 +87,17 @@ public class SortClass {
             numbers[k] = temp;
         }
     }
-
+    public static void selectSortT(int[] numbers){
+        for(int i=0;i<numbers.length;i++){
+            for(int j=i+1;j<numbers.length;j++){
+                if(numbers[i] > numbers[j]){
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                }
+            }
+        }
+    }
     /**
      * 快速排序
      *
@@ -135,12 +146,12 @@ public class SortClass {
         System.out.println();
     }
     public static void main(String [] args){
-        int [] numbers = new int[10];
-        for(int i=0;i<9;i++){
+        int [] numbers = new int[]{7,5,2,3,6,8,9,2,4,1};
+        /*for(int i=0;i<9;i++){
             numbers[i] = ((int)Math.ceil(Math.random()*10));
-        }
+        }*/
         printArr(numbers);
-        insertSortT((numbers));
+        bubbleSort((numbers));
         printArr(numbers);
     }
 }
