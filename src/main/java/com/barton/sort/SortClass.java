@@ -98,6 +98,21 @@ public class SortClass {
             }
         }
     }
+    public static void selectSortT1(int[] numbers){
+        int size = numbers.length;
+        int temp;
+        for (int i = 0; i < size; i++) {
+            int k = i;
+            for (int j = i+1; j<size; j++)  {
+                if (numbers[j] < numbers[k]) {
+                    k = j;
+                }
+            }
+            temp = numbers[i];
+            numbers[i] = numbers[k];
+            numbers[k] = temp;
+        }
+    }
     /**
      * 快速排序
      *
@@ -151,7 +166,7 @@ public class SortClass {
             numbers[i] = ((int)Math.ceil(Math.random()*10));
         }*/
         printArr(numbers);
-        bubbleSort((numbers));
+        selectSortT1((numbers));
         printArr(numbers);
     }
 }
